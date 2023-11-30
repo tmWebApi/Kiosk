@@ -11,7 +11,7 @@ namespace Repository
     public class TicketRepository
     {
         string jsonFilePath = "../Repository/data.json";
-
+        public IEnumerable<Ticket>? Tickets { get; set; }
 
 
         public IEnumerable<Ticket>? getTickes()
@@ -21,6 +21,7 @@ namespace Repository
 
             // Deserialize the JSON data into an object
             IEnumerable<Ticket>? tickets = JsonConvert.DeserializeObject<IEnumerable<Ticket>>(jsonData);
+            this.Tickets = tickets;
             return tickets;
         }
     }
